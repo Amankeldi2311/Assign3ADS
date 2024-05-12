@@ -1,13 +1,32 @@
 package table;
 
+/**
+ * Class that realizes a hash table with separate chaining.
+ * This class is a generic class that can store any type of key and value.
+ * The hash table is implemented with an array of linked lists.
+ * @param <K> Type of the key,that will be used to store the value.
+ * @param <V> Type of the value, that will be stored in the hash table.
+ */
 public class MyHashTable<K, V> {
 
+    /**
+     * HashNode class for the hash table.
+     * This class is a generic class that can store any type of key and value.
+     * @param <K> Immutable type of the key.
+     * @param <V> Any Object type.
+     */
     private class HashNode<K, V> {
 
         K key;
         V value;
         HashNode<K, V> next;
 
+        /**
+         * Creates a new HashNode with the given key and value.
+         *
+         * @param key Key of the HashNode.
+         * @param value Value of the HashNode.
+         */
         public HashNode(K key, V value) {
             this.key = key;
             this.value = value;
@@ -15,28 +34,53 @@ public class MyHashTable<K, V> {
         }
     }
 
+    /**
+     * Array that stores nodes of the hash table.
+     */
     private HashNode<K, V>[] chainArray;
     private static final int M = 11;
     private int size;
 
+    /**
+     * @param M Size of the hash table.
+     *
+     */
     public MyHashTable(int M) {
         chainArray = new HashNode[M];
         size = 0;
     }
 
+    /**
+     *Default constructor that creates a new hash table with the default size.
+     */
     public MyHashTable() {
         chainArray = new HashNode[M];
         size = 0;
     }
 
+    /**
+     * Using default hash function to get the index of the key.
+     * @param key  key for node
+     * @return Index of the key
+     */
     private int hash(K key) {
         return key.hashCode();
     }
 
+    /**
+     * This method takes hash code of the key and calculates the index of the key.
+     * @param key key for calculating index
+     * @return Index position of the key
+     */
     private int getIndex(K key) {
         return Math.abs(hash(key) % M);
     }
 
+    /**
+     * Adds a new key and value to the hash table.
+     * @param key  key to be put in the hash table
+     * @param value value to be put in the hash table
+     */
     public void put(K key, V value) {
         int index = getIndex(key);
         HashNode<K, V> head = chainArray[index];
@@ -54,6 +98,12 @@ public class MyHashTable<K, V> {
         size++;
     }
 
+    /**
+     * This method finds the value of the key in the hash table.
+     * If the key is not found, it returns null.
+     * @param key key to get the value
+     * @return value of the key
+     */
     public V get(K key) {
         int index = getIndex(key);
         HashNode<K, V> head = chainArray[index];
@@ -66,6 +116,12 @@ public class MyHashTable<K, V> {
         return null;
     }
 
+    /**
+     * Tgis method removes the key and value from the hash table.
+     *
+     * @param key key for removing the value
+     * @return Value of the key that is removed or null if the key is not found.
+     */
     public V remove(K key) {
         int index = getIndex(key);
         HashNode<K, V> head = chainArray[index];
@@ -89,6 +145,11 @@ public class MyHashTable<K, V> {
         return head.value;
     }
 
+    /**
+     * This method returns the number of key-value pairs in the hash table.
+     * @param value value for finding the key in key-value pair
+     * @return key or null if the value is not found
+     */
     public K getKey(V value) {
         for (int i = 0; i < M; i++) {
             HashNode<K, V> head = chainArray[i];
@@ -101,7 +162,7 @@ public class MyHashTable<K, V> {
         }
         return null;
     }
-
+// contains method to check if the value is in the hash table
     public boolean contains(V value) {
         return getKey(value) != null;
     }

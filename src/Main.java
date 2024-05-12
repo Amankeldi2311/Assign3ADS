@@ -1,4 +1,8 @@
+import test.MyTestingClass;
 import table.MyHashTable;
+
+
+import tree.MyBinarySearchTree;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,5 +23,35 @@ public class Main {
         System.out.println(hashTable.get("one"));
 
         System.out.println(hashTable.getKey(10));
+//
+//        MyBinarySearchTree<String, Integer> binarySearchTree = new MyBinarySearchTree<>();
+//        binarySearchTree.put("one", 1);
+//        binarySearchTree.put("two", 2);
+//        binarySearchTree.put("three", 3);
+//        binarySearchTree.put("four", 4);
+//        binarySearchTree.put("five", 5);
+//        binarySearchTree.put("six", 6);
+//        binarySearchTree.put("seven", 7);
+//        binarySearchTree.put("eight", 8);
+//        binarySearchTree.put("nine", 9);
+//        binarySearchTree.put("ten", 10);
+//
+//        System.out.println(binarySearchTree.get("one"));
+//        binarySearchTree.delete("one");
+//        System.out.println(binarySearchTree.get("one"));
+//
+////        MyTestingClass key = new MyTestingClass(5);
+//        MyTestingClass key2 = new MyTestingClass(6);
+//        MyTestingClass key3 = new MyTestingClass(7);
+//        MyTestingClass key4 = new MyTestingClass(8);
+//        MyTestingClass key5 = new MyTestingClass(9);
+//
+//        System.out.println(key.hashCode());
+//        System.out.println(key2.hashCode());
+//        System.out.println(key3.hashCode());
+//        System.out.println(key4.hashCode());
+//        System.out.println(key5.hashCode());
+
+
     }
 }
