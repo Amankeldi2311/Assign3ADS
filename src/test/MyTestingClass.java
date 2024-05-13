@@ -1,16 +1,16 @@
 package test;
 
+import table.MyHashTable;
+
 public class MyTestingClass {
-    private int key;
 
-public MyTestingClass(int key) {
-        this.key = key;
-    }
 
-    @Override
-    public int hashCode() {
-    int temp = key;
-    temp >>>= 16;
-    return temp ^ 0xbbbbbbb;
+    public void test() {
+        MyHashTable<MyTestK, MyStudent> testHighLoad = new MyHashTable<>();
+        for (int i = 0; i < 10000; i++) {
+            MyTestK key = new MyTestK(i);
+            MyStudent value = new MyStudent(i);
+            testHighLoad.put(key, value);
+        }
     }
 }

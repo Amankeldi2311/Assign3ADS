@@ -4,6 +4,7 @@ package table;
  * Class that realizes a hash table with separate chaining.
  * This class is a generic class that can store any type of key and value.
  * The hash table is implemented with an array of linked lists.
+ *
  * @param <K> Type of the key,that will be used to store the value.
  * @param <V> Type of the value, that will be stored in the hash table.
  */
@@ -12,10 +13,11 @@ public class MyHashTable<K, V> {
     /**
      * HashNode class for the hash table.
      * This class is a generic class that can store any type of key and value.
+     *
      * @param <K> Immutable type of the key.
      * @param <V> Any Object type.
      */
-    private class HashNode<K, V> {
+    private static class HashNode<K, V> {
 
         K key;
         V value;
@@ -24,7 +26,7 @@ public class MyHashTable<K, V> {
         /**
          * Creates a new HashNode with the given key and value.
          *
-         * @param key Key of the HashNode.
+         * @param key   Key of the HashNode.
          * @param value Value of the HashNode.
          */
         public HashNode(K key, V value) {
@@ -42,8 +44,10 @@ public class MyHashTable<K, V> {
     private int size;
 
     /**
-     * @param M Size of the hash table.
+     * Creates a new hash table with the given size.
+     * The size of the hash table is the size of the array.
      *
+     * @param M Size of the hash table.
      */
     public MyHashTable(int M) {
         chainArray = new HashNode[M];
@@ -51,7 +55,7 @@ public class MyHashTable<K, V> {
     }
 
     /**
-     *Default constructor that creates a new hash table with the default size.
+     * Default constructor that creates a new hash table with the default size.
      */
     public MyHashTable() {
         chainArray = new HashNode[M];
@@ -59,8 +63,9 @@ public class MyHashTable<K, V> {
     }
 
     /**
-     * Using default hash function to get the index of the key.
-     * @param key  key for node
+     * Using default hash function to get the hash of the key.
+     *
+     * @param key key for node
      * @return Index of the key
      */
     private int hash(K key) {
@@ -69,6 +74,7 @@ public class MyHashTable<K, V> {
 
     /**
      * This method takes hash code of the key and calculates the index of the key.
+     *
      * @param key key for calculating index
      * @return Index position of the key
      */
@@ -78,7 +84,8 @@ public class MyHashTable<K, V> {
 
     /**
      * Adds a new key and value to the hash table.
-     * @param key  key to be put in the hash table
+     *
+     * @param key   key to be put in the hash table
      * @param value value to be put in the hash table
      */
     public void put(K key, V value) {
@@ -101,6 +108,7 @@ public class MyHashTable<K, V> {
     /**
      * This method finds the value of the key in the hash table.
      * If the key is not found, it returns null.
+     *
      * @param key key to get the value
      * @return value of the key
      */
@@ -117,7 +125,7 @@ public class MyHashTable<K, V> {
     }
 
     /**
-     * Tgis method removes the key and value from the hash table.
+     * This method removes the key and value from the hash table.
      *
      * @param key key for removing the value
      * @return Value of the key that is removed or null if the key is not found.
@@ -147,6 +155,7 @@ public class MyHashTable<K, V> {
 
     /**
      * This method returns the number of key-value pairs in the hash table.
+     *
      * @param value value for finding the key in key-value pair
      * @return key or null if the value is not found
      */
@@ -162,7 +171,14 @@ public class MyHashTable<K, V> {
         }
         return null;
     }
-// contains method to check if the value is in the hash table
+
+    /**
+     * This method returns true if the value is found in the hash table.
+     * Otherwise, it returns false.
+     *
+     * @param value value for finding the key in key-value pair
+     * @return true if the value is found in the hash table, false otherwise
+     */
     public boolean contains(V value) {
         return getKey(value) != null;
     }
