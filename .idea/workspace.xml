@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69f1dded-8b48-4204-966d-7e0ded22a02a" name="Changes" comment="Added comments to MyHashTable class.&#10;Fixed MyTestingClass and MyTestK classes by swapping.">
+    <list default="true" id="69f1dded-8b48-4204-966d-7e0ded22a02a" name="Changes" comment="Added comments to MyBinarySearchTree Class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/table/MyHashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/table/MyHashTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/MyTestK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MyTestK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/MyTestingClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MyTestingClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tree/MyBinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tree/MyBinarySearchTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +89,8 @@
       <workItem from="1715369476221" duration="5301000" />
       <workItem from="1715784848555" duration="13659000" />
       <workItem from="1715961982576" duration="354000" />
+      <workItem from="1716017773525" duration="1950000" />
+      <workItem from="1716227552151" duration="282000" />
     </task>
     <task id="LOCAL-00001" summary="Added Class MyHashTable">
       <option name="closed" value="true" />
@@ -111,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715964244206</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added comments to MyBinarySearchTree Class">
+      <option name="closed" value="true" />
+      <created>1715968192269</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715968192269</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +146,7 @@
     <MESSAGE value="Added Class MyHashTable" />
     <MESSAGE value="Added Class MyHashTable&#10;Added Class MyBinarySearchTree&#10;Added Test CLasses" />
     <MESSAGE value="Added comments to MyHashTable class.&#10;Fixed MyTestingClass and MyTestK classes by swapping." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comments to MyHashTable class.&#10;Fixed MyTestingClass and MyTestK classes by swapping." />
+    <MESSAGE value="Added comments to MyBinarySearchTree Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added comments to MyBinarySearchTree Class" />
   </component>
 </project>

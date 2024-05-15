@@ -105,6 +105,10 @@ public class MyHashTable<K, V> {
         size++;
     }
 
+    public int getSize() {
+        return size;
+    }
+
     /**
      * This method finds the value of the key in the hash table.
      * If the key is not found, it returns null.
@@ -160,13 +164,12 @@ public class MyHashTable<K, V> {
      * @return key or null if the value is not found
      */
     public K getKey(V value) {
-        for (int i = 0; i < M; i++) {
-            HashNode<K, V> head = chainArray[i];
-            while (head != null) {
-                if (head.value.equals(value)) {
-                    return head.key;
+        for (HashNode<K, V> node : chainArray) {
+            while (node != null) {
+                if (node.value.equals(value)) {
+                    return node.key;
                 }
-                head = head.next;
+                node = node.next;
             }
         }
         return null;

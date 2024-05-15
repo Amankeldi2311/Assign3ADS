@@ -3,8 +3,8 @@ package tree;
 import java.util.Iterator;
 import java.util.Stack;
 
-public class MyBinarySearchTree<K extends Comparable <K>, V> {
-    private Node root;
+public class MyBinarySearchTree<K extends Comparable<K>, V> {
+    private Node<K, V> root;
 
     private int size = 0;
 
@@ -12,16 +12,17 @@ public class MyBinarySearchTree<K extends Comparable <K>, V> {
      * Node class for the binary search tree.
      * This class is a generic class that can store any type of key and value.
      */
-    public class Node {
+    public static class Node<K, V> {
+
         private K key;
         private V value;
-        private Node left, right;
+        private Node<K, V> left, right;
         // Node constructor
-        public Node (K key, V value) {
+
+        public Node(K key, V value) {
             this.key = key;
             this.value = value;
         }
-
         public K getKey() {
             return key;
         }
@@ -29,8 +30,8 @@ public class MyBinarySearchTree<K extends Comparable <K>, V> {
         public V getValue() {
             return value;
         }
-    }
 
+    }
     public void put(K key, V value) {
         root = put(root, key, value);
     }
@@ -40,15 +41,15 @@ public class MyBinarySearchTree<K extends Comparable <K>, V> {
      * If the key already exists, update the value
      * If the key does not exist, insert a new node
      *
-     * @param x Node
-     * @param key key of the node to be inserted in the tree
+     * @param x     Node
+     * @param key   key of the node to be inserted in the tree
      * @param value value of the node to be inserted in the tree
      * @return Node
      */
-    private Node put(Node x, K key, V value) {
+    private Node<K, V> put(Node<K, V> x, K key, V value) {
         if (x == null) {
             size++;
-            return new Node(key, value);
+            return new Node<>(key, value);
         }
         int cmp = key.compareTo(x.key);
         if (cmp < 0) x.left = put(x.left, key, value);
@@ -56,20 +57,25 @@ public class MyBinarySearchTree<K extends Comparable <K>, V> {
         else x.value = value;
         return x;
     }
+
+    public int getSize() {
+        return size;
+    }
+
     public V get(K key) {
         return get(root, key);
     }
 
     /**
-     *  Find the value of the key in the tree
-     *  If the key is not found, return null
-     *  This method is a recursive method that searches the tree for the key
+     * Find the value of the key in the tree
+     * If the key is not found, return null
+     * This method is a recursive method that searches the tree for the key
      *
-     * @param x Node
+     * @param x   Node
      * @param key key of the node to be found in the tree
      * @return value of the key in the tree
      */
-    private V get(Node x, K key) {
+    private V get(Node<K, V> x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) return get(x.left, key);
@@ -84,21 +90,21 @@ public class MyBinarySearchTree<K extends Comparable <K>, V> {
     /**
      * Delete the node with the key from the tree
      *
-     * @param x Node
+     * @param x   Node
      * @param key key of the node to be deleted in the tree
-     * @return  Node of the tree
+     * @return Node of the tree
      */
-    private Node delete(Node x, K key) {
+    private Node<K, V> delete(Node<K, V> x, K key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) x.left = delete(x.left, key);
         else if (cmp > 0) x.right = delete(x.right, key);
         else {
             size--;
-            if (x.right == null  && x.left == null) return x;
+            if (x.right == null && x.left == null) return x;
             if (x.right == null) return x.left;
             if (x.left == null) return x.right;
-            Node t = min(x.left);
+            Node<K, V> t = min(x.left);
             x.key = t.key;
             x.value = t.value;
         }
@@ -109,17 +115,19 @@ public class MyBinarySearchTree<K extends Comparable <K>, V> {
      * Find the minimum node in the tree
      *
      * @param x Node
-     * @return  minimum node in the tree
+     * @return minimum node in the tree
      */
-    private Node min(Node x) {
+    private Node<K, V> min(Node<K, V> x) {
         if (x.left == null) return x;
         return min(x.left);
     }
-    public Iterator<Node> iterator() {
+
+    public Iterator<Node<K, V>> iterator() {
         return new Iter();
     }
-    private class Iter implements Iterator<Node> {
-        private final Stack<Node> stack;
+
+    private class Iter implements Iterator<Node<K, V>> {
+        private final Stack<Node<K, V>> stack;
 
         public Iter() {
             this.stack = new Stack<>();
@@ -131,7 +139,7 @@ public class MyBinarySearchTree<K extends Comparable <K>, V> {
          *
          * @param node Node
          */
-        private void addTree(Node node){
+        private void addTree(Node<K, V> node) {
             if (node == null) return;
             addTree(node.left);
             stack.push(node);
@@ -146,7 +154,7 @@ public class MyBinarySearchTree<K extends Comparable <K>, V> {
         }
 
         @Override
-        public Node next() {
+        public Node<K, V> next() {
             return stack.pop();
         }
     }
